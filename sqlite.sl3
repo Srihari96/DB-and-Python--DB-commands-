@@ -1,0 +1,47 @@
+.sqlite3
+.database
+.exit
+sqlite3 test.db
+.schema  or .tables(to show tables)
+.open test.db
+CREATE TABLE company(id int PRIMARY KEY NOT NULL, name varchar(25),salary int NOT NULL, age int NOT NULL);
+CREATE TABLE department(id int PRIMARY KEY NOT NULL, dept varchar(30),emp_id int NOT NULL);
+DROP TABLE departme;
+.header on 
+.mode column
+SELECT * FROM company;
+SELECT COUNT(*) FROM company;
+SELECT * FROM company WHERE salary>12000;
+SELECT * FROM company WHERE salary>12000 AND age<21;
+SELECT * FROM company WHERE salary>12000 OR age IS NOT NULL;
+SELECT * FROM company WHERE name LIKE 'H%';
+SELECT * FROM company WHERE age BETWEEN 20 AND 25;
+UPDATE company SET salary=25000 WHERE id=1;
+SELECT * FROM company LIMIT 1 OFFSET 1;
+SELECT * FROM company ORDER BY name,salary ;
+SELECT name, COUNT(name),SUM(salary) FROM company GROUP BY name;
+SELECT DISTINCT name FROM company;
+SELECT emp_id,name,dept FROM company INNER JOIN department ON company.id=department.emp_id;
+SELECT emp_id,name,dept FROM company LEFT OUTER JOIN department ON company.id=department.emp_id;
+ALTER TABLE department RENAME TO summa;
+ALTER TABLE department ADD COLUMN summa;
+CREATE VIEW NEW AS SELECT dept,emp_id FROM department;
+SELECT * FROM NEW;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
